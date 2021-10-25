@@ -1,12 +1,14 @@
-import react from "react";
+import {useState} from "react";
 
-function AngryButton() {
-  
-return (
-<button className="AngryButton">
-{/* When the threshold is not reached */}<span>Don't click me too much! </span>
-{/* When the threshold is not reached */}<span>Rawr!</span>
-</button> )
+function AngryButton(props) {
+  const [anger, setAnger] = useState();
+  return (
+    <button style={{ backgroundColor: `rgba(255,0,0,${anger})` }} className="AngryButton">
+    {anger < 1 && <span>Don't click me too much! </span>}
+    {anger > 1 && <span>Rawr!</span>}
+  </button>
+
+  );
 }
 
 export default AngryButton;
